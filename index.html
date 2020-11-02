@@ -1,0 +1,141 @@
+
+<html>
+
+<head>
+  <title>Lab 2 Part 2: Safe walking components in Pierce County</title>
+  <!-- the Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <!-- the Leaflet JavaScript library -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src= "https://cdn.jsdelivr.net/npm/leaflet-legend@1.0.2/leaflet-legend.min.js"></script>
+  <script src="js/leaflet-providers.js"></script>
+  <!-- the Fullscreen plugin -->
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+  <h1 class="headers"><center>Safe walking components in Pierce County</center></h1>
+  <h2><p><center><span style="color: #ff0000">Attention!</span> The fill-color of school boundaries differs by its city</center></p>
+  <p><center>Use the <span style="color: #ff0000">Ruler</span> on the top-right corner to measure the distance between points.</center></p></h2>
+  <!-- code where we create and name the container that holds the map -->
+  <div id="map" style="height: 80%"></div>
+  <ul>
+  <li><p>This map depicts the safe walking components in Pierce County. The components include parks, school grounds, and police stations which create safety altogether. Data comes from the <a href="https://gisdata-piercecowa.opendata.arcgis.com/" target="_blank">Pierce County GIS Portal</a>. Parks are visualized with the tree icon and the school grounds are depicted as polygons filled with different colors. Click on the icons and polygons for more information.</p></li>
+  <li><p>The purpose of this map is to show safe locations for walking to parks. There are numbers of studies explaining that safety is more secured near school grounds due to the presence of school security.</p></li>
+  <li><p>Also, people tend to feel safer when police departments are nearby. Click police markers in the map to see the information of each police station.</p></li>
+  <li><p>Thus, if you want to feel safer when going to the park, try to consider locations of school and police stations.</p></li>
+  <li><p>Parks and police stations icons are from <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia</a> and Plug-ins are from <a href="https://leafletjs.com/plugins.html" target="_blank">Leaflet.</a></p></li>
+  </ul>
+
+  <div id="legend">
+			<h3><center>Parks, Schools, and Police Stations</center></h3>
+			<ul style="list-style-type:none">
+				<li>
+					<svg width="22" height="22">
+						<rect x="12" y="14" height="8" width="10" stroke="green" stroke-width="2" fill="white" fill-opacity="1"/>
+					</svg>
+					<text>School Boundaries</text>
+				</li>
+				<li>
+					<svg width="24" height="24">
+						<img src="image/parksicon.png" height=15px width=15px>
+					</svg>
+					<text>Parks Points</text>
+				</li>
+        <li>
+					<svg width="24" height="24">
+						<img src="image/police.png" height=15px width=15px>
+					</svg>
+					<text>Police Stations</text>
+				</li>
+			</ul>
+	</div>
+
+  <!-- code where we build the map and its functionality -->
+  <script>
+    var mymap = L.map('map', {fullscreenControl: true,}).setView([47.069476, -122.2059065], 10);
+    var CartoDB_Voyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      	subdomains: 'abcd',
+      }).addTo(mymap);
+
+      var options = {
+          position: 'topright',
+          lengthUnit: {
+            factor: 0.539956803,    //  from km to nm
+            display: 'Miles',
+            decimal: 2,
+            label: 'Distance:'
+                  }
+                };
+        L.control.ruler(options).addTo(mymap);
+
+    $.getJSON("geojson/park.geojson",function(data){
+            var Myparks = L.icon({
+                iconUrl: 'image/parksicon.png',
+                iconSize: [15,15]
+                });
+          L.geoJson(data, {
+          pointToLayer: function(feature, latlng){
+              var marker = L.marker(latlng, {icon: Myparks});
+              marker.bindPopup("<strong>Name: </strong> " + feature.properties.Name + "<br><strong>Park Type: </strong>" + feature.properties.ParkType + "<br><strong>Address: </strong>" + feature.properties.Address);
+              return marker;
+          }
+      }).addTo(mymap);
+    });
+
+
+    $.getJSON("geojson/policestations.geojson",function(data){
+            var police = L.icon({
+                iconUrl: 'image/police.png',
+                iconSize: [18,18]
+                });
+          L.geoJson(data, {
+          pointToLayer: function(feature, latlng){
+              var marker = L.marker(latlng, {icon: police});
+              marker.bindPopup("<strong>Name: </strong> " + feature.properties.LOCNAME + "<br><strong>Address: </strong>" + feature.properties.ADDRESS + "<br><strong>Phone: </strong>" + feature.properties.PHONE);
+              return marker;
+          }
+      }).addTo(mymap);
+    });
+
+
+    $.getJSON("geojson/schoolgrounds.geojson",function(data){
+  				L.geoJson(data, {
+  					 style: function(feature){
+               var fillcolor,
+                    City = feature.properties.CITY;
+                    if ( City == "TACOMA" ) fillColor = "#00ff00";
+                    else if ( City == "PUYALLUP" ) fillColor = "#cc33ff";
+                    else if ( City == "LAKEWOOD" ) fillColor = "#ff8000";
+                    else if ( City == "UNIVERSITY PLACE" ) fillColor = "#ffff00";
+                    else if ( City == "SPANAWAY" ) fillColor = "#669999";
+                    else fillColor = "#ffffff";
+  						 return{color: "green", fillColor: fillColor, fillOpacity: .4};
+  					},
+            onEachFeature: function( feature, layer ){
+             layer.bindPopup( "<strong> Name: </strong> " + feature.properties.NAME + "<br> <strong>Address: </strong> " + feature.properties.ADDRESS + "<br> <strong>City: </strong> " + feature.properties.CITY)
+           }
+  				}).addTo(mymap);
+  		});
+
+    var Legend =  new L.Control.Legend({
+      		position: 'bottomright',
+      	});
+
+      	mymap.addControl(Legend);
+      	$(".legend-container").append( $("#legend") );
+
+
+
+  </script>
+
+</body>
+</html>
