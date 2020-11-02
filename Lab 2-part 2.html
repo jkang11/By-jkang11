@@ -45,13 +45,13 @@
 				</li>
 				<li>
 					<svg width="24" height="24">
-						<img src="parksicon.png" height=15px width=15px>
+						<img src="image/parksicon.png" height=15px width=15px>
 					</svg>
 					<text>Parks Points</text>
 				</li>
         <li>
 					<svg width="24" height="24">
-						<img src="police.png" height=15px width=15px>
+						<img src="image/police.png" height=15px width=15px>
 					</svg>
 					<text>Police Stations</text>
 				</li>
@@ -79,7 +79,7 @@
 
     $.getJSON("geojson/park.geojson",function(data){
             var Myparks = L.icon({
-                iconUrl: 'parksicon.png',
+                iconUrl: 'image/parksicon.png',
                 iconSize: [15,15]
                 });
           L.geoJson(data, {
@@ -94,7 +94,7 @@
 
     $.getJSON("geojson/policestations.geojson",function(data){
             var police = L.icon({
-                iconUrl: 'police.png',
+                iconUrl: 'image/police.png',
                 iconSize: [18,18]
                 });
           L.geoJson(data, {
