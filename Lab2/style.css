@@ -1,0 +1,28 @@
+.headers {
+  background-color: #669999;
+ color: #ffffff;
+ font-family: cursive; sans-serif;
+ padding: 20px;
+ text-align: center;
+}
+
+body {
+font-family: "Tahoma"; sans-serif;
+background-color: #e0e0eb;
+color: #000000;
+font-size:1.2em;
+max-width: 1000px;
+margin: auto;
+}
+
+h2 {
+  font-family: "Tahoma"; sans-serif;
+  font-size:0.9em;
+
+}
+#legend {
+  line-height: 0px;
+  background: white;
+  opacity: 0.8;
+  padding:2px 2px 2px 2px;
+  }
