@@ -37,13 +37,13 @@
 					<li><p>This map depicts locations of free wifi sites in Washington State.</p></li>
 					<li><p>As shown, there are many locations that provide free wifi service. Visit these locations when free wifi is needed. </li></p>
 					<li><p>Hand-held fan shaped icons are showing locations of these sites and green-colored points are added to see all the locations regardless of zoom level.</p></li>
-					<li><p>Click on the points for more information and also use the "Search" tool in the right-top to find any location.</p></li>
+					<li><p>Click on the points for more information and also use the "Search" tool in the right-top to find any location. To see your location, click the locator button underneath the zoom buttons in the right-top corner.</p></li>
 					<li><p>All data are from <a href="https://geo.wa.gov/" target="_blank">Washington State GIS Portal</a>.
 					</li></p>
 				</ul>
 				<br>
 			<script>
-			//copy your access token here
+//copy your access token here
 			mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
 
 			var map = new mapboxgl.Map({
@@ -148,7 +148,6 @@
 //Zoom
 						map.addControl(new mapboxgl.NavigationControl());
 
-
 // enumerate ids of the layers
 						var toggleableLayerIds = ['Firestations', 'Facilities'];
 
@@ -182,11 +181,8 @@
 						layers.appendChild(link);
 						}
 			</script>
-
-		<br>
 <!-- map2 -->
 		<center><div id="map2"></div></center>
-
 			<script>
 		  	mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
 		    var map2 = new mapboxgl.Map({
@@ -240,6 +236,15 @@
 //Zoom
 						map2.addControl(new mapboxgl.NavigationControl());
 
+//Geolocate Users
+						map2.addControl(
+						new mapboxgl.GeolocateControl({
+						positionOptions: {
+						enableHighAccuracy: true
+						},
+						trackUserLocation: true
+						})
+						);
 				</script>
 	</body>
 </html>
