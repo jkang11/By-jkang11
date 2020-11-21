@@ -151,7 +151,7 @@
 // enumerate ids of the layers
 						var toggleableLayerIds = ['Firestations', 'Facilities'];
 
-						// set up the corresponding toggle button for each layer
+// set up the corresponding toggle button for each layer
 						for (var i = 0; i < toggleableLayerIds.length; i++) {
 						var id = toggleableLayerIds[i];
 
@@ -167,7 +167,7 @@
 
 						var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
-						// toggle layer visibility by changing the layout object's visibility property
+// toggle layer visibility by changing the layout object's visibility property
 						if (visibility === 'visible') {
 						map.setLayoutProperty(clickedLayer, 'visibility', 'none');
 						this.className = '';
@@ -181,8 +181,7 @@
 						layers.appendChild(link);
 						}
 			</script>
-<!-- map2 -->
-		<center><div id="map2"></div></center>
+		<!-- <center><div id="map2"></div></center> -->
 			<script>
 		  	mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
 		    var map2 = new mapboxgl.Map({
@@ -199,7 +198,7 @@
 											"data": "Geojson/Wifi_sites.geojson"
 									});
 						map2.addLayer({
-											"id":"Wifi_Locations",
+											"id":"Wifi Points",
 											"type":"circle",
 											"source":"Wifi_sites",
 											"paint": {
@@ -209,19 +208,19 @@
 										});
 								});
 
-						map2.on('click', 'Wifi_Locations', function (e) {
+						map2.on('click', 'Wifi Points', function (e) {
 									new mapboxgl.Popup()
 									.setLngLat(e.lngLat)
 									.setHTML("Name: " + "<b>" + e.features[0].properties.USER_Site + "</b>" + "<br>" + "City: " + "<b>" + e.features[0].properties.USER_City + "</b>")
 									.addTo(map2);
 									});
 
-						map2.on('mouseenter', 'Wifi_Locations', function () {
+						map2.on('mouseenter', 'Wifi Points', function () {
 								map2.getCanvas().style.cursor = 'pointer';
 									});
 
 										// Change it back to a pointer when it leaves.
-						map2.on('mouseleave', 'Wifi_Locations', function () {
+						map2.on('mouseleave', 'Wifi Points', function () {
 								map2.getCanvas().style.cursor = '';
 									});
 
@@ -245,6 +244,7 @@
 						trackUserLocation: true
 						})
 						);
+
 				</script>
 	</body>
 </html>
