@@ -7,6 +7,15 @@
  text-align: center;
 }
 
+body {
+font-family: "Tahoma"; sans-serif;
+background-color: #ffffff;
+color: #000000;
+font-size:1.1em;
+max-width: 1000px;
+margin: auto;
+}
+
 #map {height: 80vh;}
 #map2 {height: 80vh;}
 
@@ -15,7 +24,7 @@ background: #fff;
 position: absolute;
 z-index: 1;
 top: 130px;
-right: 1130px;
+right: 1125px;
 border-radius: 3px;
 width: 120px;
 border: 1px solid rgba(0, 0, 0, 0.4);
@@ -23,13 +32,14 @@ font-family: 'Open Sans', sans-serif;
 }
 
 #menu a {
-font-size: 13px;
+font-size: 12px;
+font-family: arial black;
 color: #404040;
 display: block;
 margin: 0;
 padding: 0;
 padding: 10px;
-text-decoration: none;
+text-decoration: underline;
 border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 text-align: center;
 }
@@ -40,7 +50,7 @@ border: none;
 
 #menu a:hover {
 background-color: #f8f8f8;
-color: #404040;
+color: #4b2e83;
 }
 
 #menu a.active {
@@ -51,24 +61,3 @@ color: #ffffff;
 #menu a.active:hover {
 background: #3074a4;
 }
-
-body {
-font-family: "Tahoma"; sans-serif;
-background-color: #ffffff;
-color: #000000;
-font-size:1.2em;
-max-width: 1000px;
-margin: auto;
-}
-
-h2 {
-  font-family: "Tahoma"; sans-serif;
-  font-size:0.9em;
-
-}
-/* #legend {
-  line-height: 0px;
-  background: white;
-  opacity: 0.8;
-  padding:2px 2px 2px 2px;
-  } */
