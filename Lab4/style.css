@@ -64,7 +64,7 @@ text-align: left;
 position: absolute;
 bottom: 0;
 right: 0;
-background: rgba(255, 255, 255, 0.8);
+background: rgba(255, 255, 255, 1);
 margin-right: 20px;
 font-family: Arial, sans-serif;
 overflow: auto;
@@ -77,8 +77,8 @@ height: 100px;
 margin-top: 20px;
 width: 250px;
 z-index: 1;
-top: 100px;
-right: 230px;
+top: 120px;
+right: 240px;
 }
 
 #legend {
