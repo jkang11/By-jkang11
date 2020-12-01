@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <title>Introducing Tacoma</title>
+
+    	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+      <link href="style.css" rel="stylesheet" type="text/css">
+			<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+      <!-- chart -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <h1 class="headers"><center>Welcome to Tacoma</center></h1>
+    <div id='map'></div>
+    <div class='map-overlay' id='features'><h2>Tacoma Population</h2><div id='pd'><p>Hover over a block group!</p></div></div>
+    <div class='map-overlay' id='legend'><b>Population Density<b></div>
+
+<!-- This is where charts start -->
+		<div class="wrapper">
+			<h1>Tacoma Demographics</h1>
+			<h2>Data from Census Reporter</h2>
+      <canvas id="myChart" width="2000" height="1000"></canvas>
+    </div>
+
+    <script>
+
+//copy your access token here
+  			mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
+
+  			var map = new mapboxgl.Map({
+  			  container: 'map', // HTML container id
+  			  style:  'mapbox://styles/jkang1/ckhyszk2s0v5z19mvxomq6ziz', // style URL
+  			  center: [-122.4652388, 47.2414268],// starting position as [lng, lat]
+  			  zoom: 10.5 // starting zoom
+  			});
+
+//legend
+        map.on('load', function() {
+          var layers = ['0-606 | Lowest', '606-1000 | Lower', '1000-1500 | Low', '1500-2000 | High', '2000-2500 | Higher', '2500-3000 | Highest'];
+          var colors = ['#42fc31', '#d5fb4b', '#fded3a', '#fca22c', '#fe622a', '#c70000'];
+          for (i = 0; i < layers.length; i++) {
+
+        var layer = layers[i];
+        var color = colors[i];
+        var item = document.createElement('div');
+        var key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+            var value = document.createElement('span');
+        value.innerHTML = layer;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+        }
+        });
+
+
+
+        map.on('mousemove', function(e) {
+        var Tacoma = map.queryRenderedFeatures(e.point, {
+        layers: ['Tacoma_Clip']
+        });
+
+        if (Tacoma.length > 0) {
+        document.getElementById('pd').innerHTML = '<h3><strong>' + Tacoma[0].properties.Population + '</strong> people per Block Group</em></p>';}
+        else {document.getElementById('pd').innerHTML = '<p>Hover over a block group!</p>';}
+        });
+
+        map.getCanvas().style.cursor = 'default';
+
+  </script>
+
+
+
+<script>
+		var ctx = document.getElementById("myChart");
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		   data:{
+		   labels: ["White", "African American", "Asian", "Hispanic", "Two or More", "Other"],
+		        datasets: [{
+		            data: [58, 11, 6, 13, 9, 2],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)',
+		                'rgba(153, 102, 255, 0.2)',
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)',
+		                'rgba(153, 102, 255, 1)',
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 2
+		        }]
+		},
+		    options: {
+					legend: {
+          display: false
+        },
+		        scales: {
+							xAxes: [{
+							  gridLines: {
+							    display: false
+							  },
+							  ticks: {
+							    fontFamily: "Cursive",
+									fontSize: 13,
+							  }
+							}],
+		            yAxes: [{
+		            ticks: {
+
+		                   min: 0,
+		                   max: 100,
+		                   callback: function(value){return value+ "%"}
+		                },
+
+		            }]
+		        }
+		    }
+		});
+
+</script>
+
+</body>
+
+</html>
