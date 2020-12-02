@@ -7,15 +7,22 @@
     	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
       <link href="style.css" rel="stylesheet" type="text/css">
-			<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
       <!-- chart -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+      <!-- Geocoder -->
+			<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+			<link	rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+			type="text/css"/>
+			<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+			<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 </head>
 
 
 <body>
 
+<!-- 1st Map -->
     <h1 class="headers"><center>Welcome to the City of Tacoma</center></h1>
     <div id='map'></div>
     <div class='map-overlay' id='features'><h2>Tacoma Population</h2><div id='pd'><p>Hover over a block group!</p></div></div>
@@ -28,8 +35,21 @@
       <canvas id="myChart" width="2000" height="1000"></canvas>
     </div>
 
-    <script>
 
+<!-- 2nd Map -->
+    <h1 class="headers"><center>Places to Visit in Tacoma</center></h1>
+    <div id="menu"></div>
+		<div id='map2'></div>
+      <ul>
+      <li><p>This map depicts blahblahblah </p></li>
+      <li><p>Click on the points for more information and click on the menu in the left-top to turn on&off the points. Also, type in address in the "Search" tool in the right-top to find the address of your choice.</p></li>
+      <li><p>All data are from <a href="https://gisdata-piercecowa.opendata.arcgis.com/" target="_blank">Pierce County GIS Portal</a>.
+      </li></p>
+      </ul>
+      <br>
+
+
+    <script>
 //copy your access token here
   			mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
 
@@ -77,7 +97,7 @@
   </script>
 
 
-
+<!-- Bar Chart -->
 <script>
 		var ctx = document.getElementById("myChart");
 		var myChart = new Chart(ctx, {
@@ -131,6 +151,78 @@
 		        }
 		    }
 		});
+
+</script>
+
+<!-- 2nd map -->
+<script>
+//copy your access token here
+      mapboxgl.accessToken = 'pk.eyJ1IjoiamthbmcxIiwiYSI6ImNrZ3d5NjR3NDBldzgycW8zdDZ0NTZvYjAifQ.lUQQ9nNNJryYS05ye4FpLA';
+
+      var map2 = new mapboxgl.Map({
+        container: 'map2',// HTML container id
+        style:  'mapbox://styles/jkang1/cki5rokm50dmq19s0cdicuu92',// style URL
+        center: [-122.4652388, 47.2414268],// starting position as [lng, lat]
+        zoom: 10.5 // starting zoom
+      });
+
+//Schools
+
+      var geojson ={"type":"FeatureCollection", "features": [
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.46797386019246,47.24181419024509]},"properties":{"OBJECTID":10,"NAME":"Bates Technical College - Central Campus","ADDRESS":"2320 S 19TH ST","CITY":"TACOMA","ZIP":"98405","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"TECHNICAL","PHONE":"(253) 680-7603","WEBSITE":"https://batestech.edu/","PRS_ID":342,"GRADE":"Higher Education","X_COORD":1151634.216,"Y_COORD":702078.521}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.44638853983874,47.25150616140254]},"properties":{"OBJECTID":11,"NAME":"Bates Technical College - Downtown Campus","ADDRESS":"1101 S YAKIMA AVE","CITY":"TACOMA","ZIP":"98405","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"TECHNICAL","PHONE":"(253) 680-7000","WEBSITE":"https://batestech.edu/","PRS_ID":241,"GRADE":"Higher Education","X_COORD":1157081.4561,"Y_COORD":705479.4874}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.4664954172474,47.18787255736512]},"properties":{"OBJECTID":12,"NAME":"Bates Technical College - South Campus","ADDRESS":"2201 S 78TH ST","CITY":"TACOMA","ZIP":"98409","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"TECHNICAL","PHONE":"(253) 680-7400","WEBSITE":"https://batestech.edu/","PRS_ID":253,"GRADE":"Higher Education","X_COORD":1151510.8788,"Y_COORD":682400.9323}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.43937819369988,47.25166123209732]},"properties":{"OBJECTID":46,"NAME":"City University","ADDRESS":"1145 BROADWAY PLAZA SUITE 600","CITY":"TACOMA","ZIP":"98402","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"UNIVERSITY","PHONE":"(253) 896-3210","WEBSITE":"https://www.cityu.edu/about-cityu/locations-overview/","PRS_ID":365,"GRADE":"Higher Education","X_COORD":1158823.3332,"Y_COORD":705493.151}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.45492109321204,47.25640912901201]},"properties":{"OBJECTID":91,"NAME":"Evergreen State College","ADDRESS":"1210 6TH AVE","CITY":"TACOMA","ZIP":"98405","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"COLLEGE","PHONE":"(253) 680-3000","WEBSITE":"https://www.evergreen.edu/tacoma","PRS_ID":255,"GRADE":"Higher Education","X_COORD":1155007.3684,"Y_COORD":707319.661}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.43356750130378,47.23584809855413]},"properties":{"OBJECTID":230,"NAME":"School of Urban Ministry - Tacoma","ADDRESS":"106 S 28TH ST","CITY":"TACOMA","ZIP":"98402","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"COLLEGE","PHONE":"(253) 584-3778","WEBSITE":"https://schoolofurbanministry-tacoma.org/","PRS_ID":465,"GRADE":"Higher Education","X_COORD":1160124.6015,"Y_COORD":699691.752}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.52131208121116,47.24649936313513]},"properties":{"OBJECTID":261,"NAME":"Tacoma Community College - Tacoma Campus","ADDRESS":"6501 S 19TH ST","CITY":"TACOMA","ZIP":"98466","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"COLLEGE","PHONE":"(253) 566-5000","WEBSITE":"https://www.tacomacc.edu/about/","PRS_ID":245,"GRADE":"Higher Education","X_COORD":1138433.3381,"Y_COORD":704121.8411}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.48106796359309,47.261862051220184]},"properties":{"OBJECTID":273,"NAME":"University Of Puget Sound","ADDRESS":"1500 N WARNER ST","CITY":"TACOMA","ZIP":"98416","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"UNIVERSITY","PHONE":"(253) 879-3100","WEBSITE":"https://www.pugetsound.edu/","PRS_ID":252,"GRADE":"Higher Education","X_COORD":1148566.373,"Y_COORD":709469.9368}},
+      {"type":"Feature","geometry":{"type":"Point","coordinates":[-122.43828053661741,47.24504511461952]},"properties":{"OBJECTID":274,"NAME":"University of Washington - Tacoma ( UWT )","ADDRESS":"1900 COMMERCE ST","CITY":"TACOMA","ZIP":"98402","DISTRICT":"NOT APPLICABLE","DIST_NO":"","TYPE":"UNIVERSITY","PHONE":"(253) 692-4400","WEBSITE":"http://www.tacoma.uw.edu/","PRS_ID":243,"GRADE":"Higher Education","X_COORD":1159036.5583,"Y_COORD":703074.0025}}
+    ]};
+        // add markers to map
+        geojson.features.forEach(function(marker) {
+
+          // create a HTML element for each feature
+          var el = document.createElement('div');
+          el.className = 'marker';
+
+          // make a marker for each feature and add to the map
+          new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .setPopup(new mapboxgl.Popup()
+               .setHTML("Name: " + "<b>" + marker.properties['NAME'] + '</b>' + "<br>" + "Address: " + "<b>" + marker.properties['ADDRESS']))
+            .addTo(map2);
+          });
+
+
+//Tacoma boundary
+      map2.on('load', function(){
+      map2.addSource('Population', {
+                "type": "geojson",
+                "data": "Geojson/Tacoma.geojson"
+            });
+      map2.addLayer({
+              "id":"Population_total",
+              "type":"fill",
+              "source":"Population",
+              "paint": {
+                  "fill-color": "white",
+                  "fill-opacity": 0.3
+              }
+            });
+
+        });
+
+//Geocoder
+      map2.addControl(
+          new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl
+          })
+          );
+
+//Zoom
+      map2.addControl(new mapboxgl.NavigationControl());
 
 </script>
 
