@@ -60,6 +60,79 @@
   			  zoom: 10.5 // starting zoom
   			});
 
+//Hover Effect
+var hoveredBGId = null;
+
+map.on('load', function () {
+map.addSource('Tacoma_BGs', {
+'type': 'geojson',
+'data':
+'Geojson/Tacoma_BG.json'
+});
+
+
+// The feature-state dependent fill-opacity expression will render the hover effect
+// when a feature's hover state is set to true.
+map.addLayer({
+'id': 'BG-fills',
+'type': 'fill',
+'source': 'Tacoma_BGs',
+'layout': {},
+'paint': {
+'fill-color': 'white',
+'fill-opacity': [
+'case',
+['boolean', ['feature-state', 'hover'], false],
+1,
+0.5
+]
+}
+});
+
+map.addLayer({
+'id': 'BG-borders',
+'type': 'line',
+'source': 'Tacoma_BGs',
+'layout': {},
+'paint': {
+'line-color': '#627BC1',
+'line-width': 1.5
+}
+});
+
+// When the user moves their mouse over the state-fill layer, we'll update the
+// feature state for the feature under the mouse.
+map.on('mousemove', 'BG-fills', function (e) {
+if (e.features.length > 0) {
+if (hoveredBGId) {
+map.setFeatureState(
+{ source: 'Tacoma_BGs', id: hoveredBGId },
+{ hover: false }
+);
+}
+hoveredBGId = e.features[0].id;
+map.setFeatureState(
+{ source: 'Tacoma_BGs', id: hoveredBGId },
+{ hover: true }
+);
+}
+});
+
+// When the mouse leaves the state-fill layer, update the feature state of the
+// previously hovered feature.
+map.on('mouseleave', 'BG-fills', function () {
+if (hoveredBGId) {
+map.setFeatureState(
+{ source: 'Tacoma_BGs', id: hoveredBGId },
+{ hover: false }
+);
+}
+hoveredBGId = null;
+});
+
+});
+
+
 //legend
         map.on('load', function() {
           var layers = ['0-606 | Lowest', '606-1000 | Lower', '1000-1500 | Low', '1500-2000 | High', '2000-2500 | Higher', '2500-3000 | Highest'];
