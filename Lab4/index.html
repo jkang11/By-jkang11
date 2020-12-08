@@ -22,9 +22,8 @@
 
 <body>
 
-    <h0 class="headers0"><center>Tacoma, the city We love.</center></h0>
+    <h0 class="headers0"><center>Tacoma, the City We love.</center></h0>
 
-        <h3>About Tacoma</h3>
         <div class="row">
         <div class="column">
           <p><strong>Tacoma (/təˈkoʊmə/ tə-KOH-mə)</strong> is a mid-sized urban port city and the county seat of Pierce County, Washington, United States.
@@ -42,21 +41,24 @@
       </div>
 
       <!-- 1st Map -->
-
+      <hr width = "100%" color = "grey" size = "3">
       <h1 class="headers"><center>Tacoma Population Map</center></h1>
-      <div id='map'></div>
-      <div class='map-overlay2' id='legend'>Population Density</div>
+      <div id='map'>
+        <div class='map-overlay2' id='legend'><strong>Population Density</strong></div>
+      </div>
       <section>
+      <p><strong>This density map</strong> depicts population per square mile in each block group. The green to red gradient shows density where the greener it is, the lesser density it is.</p>
       <p><strong>As depicted in the map</strong>, most areas in Tacoma isn't densely populated. Unlike bigger cities such as New York or LA, you can enjoy urban life with relatively less crowded environment.</p>
-      <p>Click each block group to see male, female, and the total population living in the block group. </p>
+      <p>Click each block group to see more information about each block group. </p>
+      <p><strong>Geocoder</strong>: It is located on the rigt-top corner. Search any location to find it. It will automatically zoom to the typed location.</p>
+      <p><strong>Full screen and locate tool</strong>: It is located under Geocoder. Click each to either full screen or locate yourself.</p>
       </section>
       <br>
-
+      <hr width = "100%" color = "grey" size = "3">
 <!-- This is where charts start -->
-		<div class="wrapper">
-			<h1 class="headers">Tacoma Demographics</h1>
-			<h2><center>Data from Census Reporter<center></h2>
-      <canvas id="myChart" width="2000" height="1000"></canvas>
+    	<h1 class="headers">Tacoma Demographics</h1>
+    <div class="wrapper">
+			<canvas id="myChart" width="2000" height="1000"></canvas>
       <section>
       <p>According to <a href="https://censusreporter.org/profiles/16000US5370000-tacoma-wa/" target="_blank">Census Reporter,</a> population in Tacoma consists of about 58% of White, 11% of African American, 6% of Asian, 13% of Hispanic, 9% of Two or more, and 2% of other race. </p>
       <br>
@@ -69,12 +71,13 @@
     <p>*Pictures from <a href="https://www.wikimedia.com/" target="_blank">Wikimedia</a></p>
     </footer>
     <section>
-    <p>As the chart shows, Tacoma is a racially diverse. Truly, Tacoma is home for different people from different countries. No matter where you are from, who you are, in Tacoma, people will see you just the way you are.</p>
+    <p><strong>As the chart shows</strong>, Tacoma is a racially diverse. Truly, Tacoma is home for different people from different countries. No matter where you are from, who you are, in Tacoma, people will see you just the way you are.</p>
     <p>Now, Let's move onto the next map to see what places you should visit in Tacoma. There are so many cool places you never want to miss!</p>
     <br>
     </section>
 
 <!-- 2nd Map -->
+    <hr width = "100%" color = "grey" size = "3">
     <h1 class="headers"><center>Places to Visit in Tacoma</center></h1>
     <!-- <div id="menu"></div> -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
@@ -82,23 +85,21 @@
     type="text/css"/>
 		<div id='map2'></div>
     <section>
-        <br>
         <h3>Places you must GO!</h3>
-        <br>
-
-        <img class="myimage" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Washington_State_History_Museum_Arch_%28Tacoma%2C_Washington%29.jpg" alt="WA Museum" />
-        <img class="myimage" src="https://education.uwmedicine.org/wp-content/uploads/2019/05/2019-Summit-conference-venue.png" alt="UW" />
-        <img class="myimage" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/20140809-0072_Diamond_Jamboree.JPG"
-        alt="Mart" />
-        <footer>
-        <p>*Pictures from <a href="https://www.wikimedia.com/" target="_blank">Wikimedia</a> and <a href="https://education.uwmedicine.org" target="_blank">UW Medicine</a></p>
         </footer>
-          <p>Now, it's time to see where to go in Tacoma. As mentioned above, there are so many cool places you never want to miss. Here I am going to introduce places in four different icons: Museums, Universities, Film, and Interesting places. Let's start the tour!</p>
+          <p>Now, it's time to see where to go in Tacoma. As mentioned above, there are so many cool places you never want to miss. Here I am going to introduce places in four different icons: Museums, Universities, Film, and Interesting places.</p>
+          <p>Click on each icon to see more information and also check out interactive tools in the map. Below is the direction.</p>
+          <p><strong>Direction tool</strong>: It is located on the left-top corner. Click two icons to set them as the origin and the destination.</p>
+          <p><strong>Geocoder</strong>: It is located on the rigt-top corner. Search any location to find it. It will automatically zoom to the typed location.</p>
           <footer>
           <p>*Icons from <a href="https://www.pngegg.com/" target="_blank">pngegg</a></p>
           </footer>
-
-
+          <img class="myimage" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Washington_State_History_Museum_Arch_%28Tacoma%2C_Washington%29.jpg" alt="WA Museum" />
+          <img class="myimage" src="https://education.uwmedicine.org/wp-content/uploads/2019/05/2019-Summit-conference-venue.png" alt="UW" />
+          <img class="myimage" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/20140809-0072_Diamond_Jamboree.JPG"
+          alt="Mart" />
+          <footer>
+          <p>*Pictures from <a href="https://www.wikimedia.com/" target="_blank">Wikimedia</a> and <a href="https://education.uwmedicine.org" target="_blank">UW Medicine</a></p>
     </section>
           <div class="row">
           <div class="column">
@@ -114,7 +115,7 @@
             <p>Tacoma also has many different movie theaters throughout the city. Looking for a place to go for a movie night? You have plenty of options in Tacoma! Click on film icon to see more information. Lastly, there are other cool places to visit such as H-mart, one of the biggest Korean Markets in Pierce County, is located a little outside of Tacoma boundary, but its address is still in Tacoma. Up in the north, Point defiance park has a stunning view of ocean and many other parks are located in Point defiance park. Like other icons, click on the exclamation icon to see more information.</p>
           </div>
           </div>
-
+          <hr width = "100%" color = "grey" size = "3">
           <br>
           <br>
           <h3>If you had a plan to visit Tacoma for one or two days, you should change your plan to stay longer! There are so many places you never want to miss. With these places, the trip to Tacoma will be one of the most memorable trip in your life!
@@ -129,7 +130,7 @@
 
   			var map = new mapboxgl.Map({
   			  container: 'map', // HTML container id
-  			  style:  'mapbox://styles/jkang1/cki8j40i20fmj1ap8bnbbgvs5', // style URL
+  			  style:  'mapbox://styles/jkang1/ckifbxk034gpa19n3v9ks1qni', // style URL
   			  center: [-122.4523209, 47.2427187],// starting position as [lng, lat]
   			  zoom: 10.5 // starting zoom
   			});
@@ -141,7 +142,7 @@
         map.on('load', function () {
             map.addSource("Tacoma", {
                 "type": "geojson",
-                "data": "Geojson/Tacoma_BG3.json",
+                "data": "Geojson/Tacoma_Un.json",
                 'promoteId':'OBJECTID'
             });
 
@@ -153,11 +154,11 @@
                 "source": "Tacoma",
                 "layout": {},
                 "paint": {
-                    "fill-color": "#627BC1",
+                    "fill-color": "White",
                     "fill-opacity": ["case",
                         ["boolean", ["feature-state", "hover"], false],
-                        1,
-                        0.45
+                        0.8,
+                        0.0
                     ]
                 }
             });
@@ -202,14 +203,14 @@
             new mapboxgl.Popup()
             .setLngLat(e.lngLat)
 
-            .setHTML("Total Population: " + "<b>" + e.features[0].properties.Population + '</b>' + '<br>' + "Male: " + "<b>" + e.features[0].properties.TotalMale + '</b>' + '<br>' + "Female: " + '<b>' + e.features[0].properties.TotalFemal + '</b>')
+            .setHTML("Total Populatio: " + "<b>" + e.features[0].properties.Population + '</b>' + '<br>' + "Population per Sqaure Mile: " + "<b>" + e.features[0].properties.Density)
             .addTo(map);
             });
 
 
   //legend
             map.on('load', function() {
-              var layers = ['Lowest', 'Low', 'medium',  'High', 'Highest'];
+              var layers = ['Lowest | 0-5000', 'Low | 5000-10000', 'medium | 10000-15000',  'High | 15000-20000', 'Highest | 20000-25000'];
               var colors = ['#42fc31', '#d5fb4b', '#fded3a', '#fca22c', '#c70000'];
               for (i = 0; i < layers.length; i++) {
 
@@ -226,6 +227,34 @@
             legend.appendChild(item);
             }
             });
+
+//Fly to location
+            map.on('click', function (e) {
+              map.flyTo({
+              center: e.lngLat,
+              zoom:13
+            });
+              });
+
+//Geocoder
+            map.addControl(
+                new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+                })
+                );
+//Full screen
+            map.addControl(new mapboxgl.FullscreenControl());
+
+//locate User
+            map.addControl(
+            new mapboxgl.GeolocateControl({
+            positionOptions: {
+            enableHighAccuracy: true
+            },
+            trackUserLocation: true
+            })
+            );
 
 
 </script>
@@ -466,6 +495,24 @@
 //Zoom
       map2.addControl(new mapboxgl.NavigationControl());
 
+//Fly to location
+      map2.on('click', function (e) {
+        map2.flyTo({
+        center: e.lngLat,
+        zoom:13
+      });
+        });
+
+// Direction
+            map2.addControl(
+            new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+            );
+
+//Full screen
+map2.addControl(new mapboxgl.FullscreenControl());
 
 </script>
 
