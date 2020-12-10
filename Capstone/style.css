@@ -1,0 +1,102 @@
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        color: #292929;
+        font-weight: 300;
+        max-width: 90%;
+        margin: auto;
+
+    }
+
+    p {
+        padding-left: 20px;
+        line-height: 1.2;
+        font-size: 20px;
+    }
+
+    ul li {
+        padding-right: 10px;
+        line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 45px;
+    }
+
+    h3 {
+        padding: 5px 20px;
+        margin: 0;
+        font-family: 'Lora', serif;
+        font-size: 25px;
+    }
+
+    div#header {
+        position: relative;
+    }
+
+    div#header h1 {
+        height: 80px;
+        line-height: 80px;
+        margin: 0;
+        padding-left: 10px;
+        background: #e0e0e0;
+        color: #292929;
+        font-family: 'Lora', serif;
+    }
+
+    div#header a {
+        position: absolute;
+        right: 0;
+        top: 23px;
+        padding: 10px;
+        color: #006;
+    }
+
+    div#navigation {
+        background: #00009;
+    }
+
+    div#navigation li {
+        list-style: none;
+    }
+
+    div#extra {
+        background: #00009;
+    }
+
+    div#footer {
+        background: transparent;
+        color: #grey;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    div#footer p {
+        padding: 20px 10px;
+    }
+
+    div#navigation {
+        float: right;
+        width: 50%;
+    }
+
+    div#extra {
+        float: right;
+        width: 49.9%;;
+    }
+
+    div#footer {
+        clear: right;
+        width: 100%;
+    }
+
+    #home{
+      text-align: center;
+      font-size: 15px;
+    }
