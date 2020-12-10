@@ -28,6 +28,11 @@
 #map {height: 80vh;}
 #map2 {height: 80vh;}
 
+#home{
+  text-align: center;
+  font-size: 15px;
+}
+
 #menu {
 background: #fff;
 position: absolute;

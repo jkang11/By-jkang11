@@ -175,4 +175,8 @@ sub {
   width: 10px;
   height: 20px;
   margin-right: 5px;
-} 
+}
+
+#home{
+  text-align: center;
+}
