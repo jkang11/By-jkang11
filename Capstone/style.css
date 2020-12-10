@@ -7,8 +7,9 @@
     body {
         color: #292929;
         font-weight: 300;
-        max-width: 90%;
+        max-width: 100%;
         margin: auto;
+        position: absolute;
 
     }
 
