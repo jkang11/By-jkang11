@@ -176,3 +176,7 @@ sub {
   height: 20px;
   margin-right: 5px;
 } 
+
+#home{
+  text-align: center;
+}
