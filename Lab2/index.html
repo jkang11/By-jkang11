@@ -108,6 +108,21 @@
     });
 
 
+    $.getJSON("geojson/PC.geojson",function(data){
+    			L.geoJson(data, {
+    				style : function(feature) {
+    					 return {
+    							color: "grey",
+    							fillOpacity: 0.1,
+    							fillColor: "grey",
+    							weight: 0.25,
+    					}
+    				}
+    			}).addTo(mymap);
+    		});
+
+
+
     $.getJSON("geojson/schoolgrounds.geojson",function(data){
   				L.geoJson(data, {
   					 style: function(feature){
