@@ -10,7 +10,6 @@
         max-width: 100%;
         margin: auto;
         position: absolute;
-
     }
 
     p {
@@ -38,7 +37,7 @@
 
     div#header {
         position: relative;
-    }
+      }
 
     div#header h1 {
         height: 80px;
