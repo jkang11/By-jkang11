@@ -38,9 +38,9 @@
         position: relative;
       }
 
-    #header h1 {
+    div#header h1 {
         /* height: 80px; */
-        line-height: 100px;
+        line-height: 80px;
         margin: 0;
         padding-left: 10px;
         background: #e0e0e0;
