@@ -73,7 +73,7 @@
             map.on('click', 'fills', function (e) {
             new mapboxgl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML("Total Populatio: " + "<b>" + e.features[0].properties.Population + '</b>' + '<br>' + "Population per Sqaure Mile: " + "<b>" + e.features[0].properties.Density)
+            .setHTML("Total Population: " + "<b>" + e.features[0].properties.Population + '</b>' + '<br>' + "Population per Sqaure Mile: " + "<b>" + e.features[0].properties.Density)
             .addTo(map);
             });
 
