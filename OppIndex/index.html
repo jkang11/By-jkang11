@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+ <title>The Opportunity Index Map</title>
+
+    	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+      <link href="style.css" rel="stylesheet" type="text/css">
+      <!-- chart -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+      <!-- Geocoder -->
+			<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+			<link	rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+			type="text/css"/>
+			<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+			<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <!-- Direction -->
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+      <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+      type="text/css"/>
+
+</head>
+
+
+<body>
+  <h0 class="headers0"><center>The Geography of Educational Equity in King County, WA.</center></h0>
+  <hr width = "100%" color = "grey" size = "3">
+
+    <div class="row">
+    <div class="column">
+      <p><strong>Are</strong> we living in a world where all people have the same access to resources and opportunities? In the contemporary world, not all people live in the same condition. Some people have more and easier access to the resources and opportunities while some others barely have access. Therefore, it is important to understand the true meaning of social equity.</p>
+    </div>
+    <div class="column">
+      <p><strong>According</strong> to the report from the Puget Sound Regional Council (2012), “social equity means that all people, regardless of where they live, have access to the resources and opportunities that improve their quality of life…” (p. 3). Without having social equity for all people, the culture of rich get richer and the poor get poorer will continuously reside within our world..</p>
+    </div>
+    <div class="column">
+        <p><strong>To break</strong> this culture, the first step should be helping children to get the same educational opportunity. With the educational opportunity maps, it will help determining areas with the higher and lower educational opportunity in King County.</p>
+          <footer>
+            <p>The report was downloaded from <a href="http://www.kirwaninstitute.osu.edu/reports/2012/05_2012_PugetSoundOppMapping.pdf" target="_blank">Here.</a></p>
+          </footer>
+    </div>
+    </div>
+
+<!-- Indices Images -->
+<hr width = "100%" color = "grey" size = "3">
+<h2>Five Variables for the Opportunity Index</h2>
+<div class="row2">
+  <div class="column2">
+    <img src="image/index.png" alt="Reading Test Score" width="1150" height="850">
+    <!-- <img src="image/math.png" alt="Math Test Score" width="450" height="450">
+    <img src="image/teacher.png" alt="Teacher Qualification" width="450" height="450">
+    <img src="image/poverty.png" alt="Poverty Rate" width="450" height="450">
+    <img src="image/grad.png" alt="Graduation Rate" width="450" height="450"> -->
+  </div>
+</div>
+      <section>
+        <p><li><strong>These maps</strong> depicts five variables that indicate the quality of local schools and educational resources. The variables are following: Washington Assessment of Student Learning (WASL) reading test scores, math test scores, student poverty rates, teacher qualifications, and graduation rates.</li><li>By using the Z-score method, the data were prepared to be calculated for the opportunity index.</li><li>However, many scholarly articles have found that the poverty rate tends to affect more in the children’s educational success (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2528798/" target="_blank">see Ferguson et al.</a>). Therefore, the povery rate was weighted more than other four variables when processed through the Z-score method. </li></p>
+      </section>
+      <br>
+
+  <hr width = "100%" color = "grey" size = "3">
+
+  <h2>The Final Opportunity Index</h2>
+  <div class="row3">
+      <img src="image/final.png" alt="Final Map" class="center" width="700" height="530">
+      <!-- <img src="image/math.png" alt="Math Test Score" width="450" height="450">
+      <img src="image/teacher.png" alt="Teacher Qualification" width="450" height="450">
+      <img src="image/poverty.png" alt="Poverty Rate" width="450" height="450">
+      <img src="image/grad.png" alt="Graduation Rate" width="450" height="450"> -->
+    </div>
+  </div>
+  <br>
+
+    <section>
+      <p><li><strong>The educational opportunity index map</strong> is a composite map that includes all the five variables. As previously explained, the Z-score values from all variables were combined into one to show the educational equity in King County.</li><li>The educational opportunity map shows that areas from Federal Way, Burien, SeaTac, Tukwila, and South Seattle have the low to the very low educational opportunity.</li><li>On contrary, North Seattle, Bellevue, Issaquah, and Maple Valley have the high to the very high opportunity. Vashon Island and Maury Island also have the high opportunity as they were in all the other individual maps.</li><li>Similar to the five individual maps, the composite map shows that educational opportunity is much lower in cities on the left side of King County. The problem of having clustered areas is that it continuously generates a bad cycle. See this <a href="http://www.kirwaninstitute.osu.edu/reports/2012/05_2012_PugetSoundOppMapping.pdf" target="_blank">report</a> for more detail.</li></p>
+    </section>
+
+  <br>
+
+  <hr width = "100%" color = "grey" size = "3">
+
+  <h5>Conclusion</h5>
+
+  <section>
+    <p><li><strong>The question</strong> that was asked in the beginning now may be answered more clearly. No, we do not live in the world where all people have equal access to the educational equity, at least, not in King County.</li><li>The results from all the maps generated from this project clearly show some areas struggle more in having educational opportunities than some other areas.</li><li>As explained, the problem of clustered areas with low opportunity is that it cycles over and over again.</li><li>This project, therefore, shall help more people to notice the problem, and policymakers should use these maps to inform more people and consider them to make policies that can truly help marginalized communities and provide better opportunities to break the bad cycle.</li></p>
+  </section>
+  <br>
+
+  <hr width = "100%" color = "grey" size = "3">
+        <br>
+        <br>
+        <h3>To download the maps, <a href="image/FinalMap.pdf" download>
+          Click Here
+        </a>!
+        </h3>
+
+        <br>
+        <div id="home">
+            <a href="https://jkang11.github.io/By-jkang11/Lab5"><p>Home</p></a>
+            <p>&copy; Jemin Kang</p>
+        </div>
+
+    <script src="JS/script.js"></script>
+    <script src="JS/script2.js"></script>
+    <script src="JS/script3.js"></script>
+</body>
+
+</html>
